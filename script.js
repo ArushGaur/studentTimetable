@@ -21,7 +21,7 @@ const defaultTimetable = {
 let currentDay = "Monday";
 let isEditMode = false;
 let timetable = JSON.parse(localStorage.getItem("userTimetable")) || defaultTimetable;
-let userName = localStorage.getItem("userName") || "Arush Gaur";
+let userName = localStorage.getItem("userName") || "Your Name";
 
 window.onload = () => {
     document.getElementById("userName").innerText = userName;
@@ -388,5 +388,6 @@ function closeTextEditor() {
         field: null
     };
 }
+
 
 
