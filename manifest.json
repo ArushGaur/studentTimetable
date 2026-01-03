@@ -1,5 +1,5 @@
 {
-  "name": "Arush's Timetable",
+  "name": "Students' Timetable",
   "short_name": "Timetable",
   "start_url": "/studentTimetable/index.html",
   "scope": "/studentTimetable/",
@@ -19,4 +19,5 @@
       "type": "image/png"
     }
   ]
+
 }
