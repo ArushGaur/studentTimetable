@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="manifest" href="/studentTimetable/manifest.json">
+    <script>
+        navigator.serviceWorker.register("/studentTimetable/service-worker.js");
+    </script>
+    <meta name="theme-color" content="#1e88e5">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Timetable</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div id="currentClassBar" class="current-class-bar hidden">
+        <span class="now">NOW</span>
+        <span id="currentClassText"></span>
+    </div>
+
+    <div class="container">
+        <div style="text-align: right;">
+            <button id="editBtn" onclick="toggleEditMode()"
+                style="padding: 0.5rem 0.6rem; border-radius: 8px; border: none; background: #1e88e5; color: white; cursor: pointer; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 1rem;">
+                ✏️
+            </button>
+        </div>
+        <h1>
+            <pre
+                style="font-size: 30px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">  Timetable 📅</pre>
+        </h1>
+        <p>Your Weekly schedule</p>
+
+        <div class="card">
+            <div class="card-header">
+                <h1 id="userName" style="cursor:pointer;" onclick="openTextEditor(null, null, null, userName, 'name')">
+                    Your Name</h1>
+            </div>
+
+            <div class="tabs">
+                <button class="active" onclick="changeDay('Monday', this)">Monday</button>
+                <button onclick="changeDay('Tuesday', this)">Tuesday</button>
+                <button onclick="changeDay('Wednesday', this)">Wednesday</button>
+                <button onclick="changeDay('Thursday', this)">Thursday</button>
+                <button onclick="changeDay('Friday', this)">Friday</button>
+                <button onclick="changeDay('Saturday', this)">Saturday</button>
+                <button onclick="changeDay('Sunday', this)">Sunday</button>
+            </div>
+            <div class="table-scroll">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>TIME</th>
+                            <th>WORK</th>
+                            <th>LOCATION</th>
+                        </tr>
+                    </thead>
+                    <tbody id="timetableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div id="timePickerOverlay" class="time-modal hidden">
+        <div class="time-card">
+            <h3>Adjust Schedule</h3>
+
+            <div class="time-row">
+                <div class="time-box">
+                    <label>START</label>
+                    <div class="time-input" onclick="openNativePicker(this)">
+                        <input type="time" id="startTime">
+                        <span class="clock-icon">🕒</span>
+                    </div>
+
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div class="time-box">
+                    <label>END</label>
+                    <div class="time-input" onclick="openNativePicker(this)">
+                        <input type="time" id="endTime">
+                        <span class="clock-icon">🕒</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="actions">
+                <button class="btn-cancel" onclick="closeTimePicker()">Cancel</button>
+                <button class="btn-confirm" onclick="applyTime()">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="textEditOverlay" class="time-modal hidden">
+        <div class="time-card">
+            <h3 id="textEditTitle">Edit</h3>
+
+            <div class="text-input-wrapper">
+                <input type="text" id="textEditInput" placeholder="Enter value" autocomplete="off" />
+            </div>
+
+            <div class="actions">
+                <button class="btn-cancel" onclick="closeTextEditor()">Cancel</button>
+                <button class="btn-confirm" onclick="applyTextEdit()">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="attractive-footer">
+        <div class="footer-content">
+            <span>Made with</span>
+            <span class="heart">❤️</span>
+            <span>by</span>
+            <span class="designer-name">Arush</span>
+        </div>
+        <div class="footer-line"></div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+
+<div id="quoteOverlay">
+    <div class="quote-card">
+        <img src="/studentTimetable/welcome.png" alt="Motivation">
+        <p id="quoteText">
+            Designed for Focus
+        </p>
+    </div>
+</div>
+
+</html>

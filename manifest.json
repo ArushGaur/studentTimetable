@@ -1,0 +1,22 @@
+{
+  "name": "Arush's Timetable",
+  "short_name": "Timetable",
+  "start_url": "/studentTimetable/index.html",
+  "scope": "/studentTimetable/",
+  "display": "standalone",
+  "background_color": "#f5f7fb",
+  "theme_color": "#1e88e5",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/studentTimetable/icon-192.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/studentTimetable/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
