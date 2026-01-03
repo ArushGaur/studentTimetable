@@ -338,7 +338,7 @@ let activeTextEdit = {
 };
 
 function openTextEditor(day, index, field, currentValue, type = "timetable") {
-    if (!isEditMode && type !== "name") return;
+    if (!isEditMode) return;
 
     activeTextEdit = { type, day, index, field };
 
@@ -388,4 +388,5 @@ function closeTextEditor() {
         field: null
     };
 }
+
 
